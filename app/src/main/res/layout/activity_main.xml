@@ -16,15 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/mainToolBar"
-            app:title="@string/app_name"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/Theme.AppCompat.Light"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <!--   在这先把news的页面插进来看看，之后删除     -->
+        <include layout="@layout/news"/>
     </FrameLayout>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttonPanel"
