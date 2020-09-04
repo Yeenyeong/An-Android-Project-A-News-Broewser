@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CoronaNews</string>
+    <string name="menu_home">首页</string>
+    <string name="menu_statistic">数据</string>
+    <string name="menu_entry">图谱</string>
+    <string name="menu_scholar">学者</string>
+    <string name="menu_user">我的</string>
+
 </resources>
