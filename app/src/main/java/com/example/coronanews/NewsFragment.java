@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
     @Nullable
     @Override
@@ -42,7 +42,6 @@ public class HomeFragment extends Fragment {
         }
 
         final Context context = getContext();
-
         Button button = (Button) view.findViewById(R.id.tabBarButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
