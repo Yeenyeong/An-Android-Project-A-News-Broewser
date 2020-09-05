@@ -28,6 +28,7 @@ public class NewsContentTest extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.contenttest, container, false);
         View view = inflater.inflate(R.layout.news_recycle_view, container, false);
         final SwipeRefreshLayout swipeRefreshLayout = view.findViewById(R.id.newsSwipeFresh);
 

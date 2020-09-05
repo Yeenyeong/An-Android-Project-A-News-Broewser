@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/newsToolBar"
+            android:id="@+id/n_s_toolBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
@@ -22,11 +22,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/newsToolBar"
+            app:layout_constraintTop_toBottomOf="@+id/n_s_toolBar"
             android:orientation="horizontal">
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/newsTab"
+                android:id="@+id/n_s_Tab"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -34,7 +34,7 @@
                 app:tabMode="scrollable"
                 style="@style/TabLayoutTheme"/>
             <Button
-                android:id="@+id/tabBarButton"
+                android:id="@+id/n_s_tabButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -42,14 +42,10 @@
                 android:background="?android:windowBackground"
                 />
         </LinearLayout>
-
-
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/newsViewPager"
+        android:id="@+id/n_s_ViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>

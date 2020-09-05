@@ -27,7 +27,7 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public ItemViewHolder(View view) {
             super(view);
-            textView = view.findViewById(R.id.testNews);
+            textView = view.findViewById(R.id.contentTest);
         }
     }
 
@@ -55,7 +55,7 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            TextView view = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.newscontenttest, parent, false);
+            TextView view = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.contenttest, parent, false);
             return new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_footer, parent, false);

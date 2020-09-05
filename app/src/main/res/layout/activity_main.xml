@@ -15,9 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <!--   在这先把news的页面插进来看看，之后删除     -->
-
     </FrameLayout>
 
 

@@ -7,19 +7,23 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-public class FmPagerAdapter extends FragmentPagerAdapter {
+public class StatisticPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
 
-    public FmPagerAdapter(List<Fragment> fragmentList, FragmentManager fm) {
+    public StatisticPagerAdapter(List<Fragment> fragmentList, FragmentManager fm) {
         super(fm);
         this.fragmentList = fragmentList;
-
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);
+    }
+    //关于hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
+    @Override
+    public long getItemId(int position) {
+        return fragmentList.get(position).hashCode();
     }
 
     @Override
