@@ -32,6 +32,7 @@ public class StatisticFragment extends Fragment {
         toolbar.setTitle(R.string.statistic);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.n_s_Tab);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.n_s_ViewPager);
         ArrayList<Fragment> fragments = new ArrayList<>();
         StatisticPagerAdapter pagerAdapter = new StatisticPagerAdapter(fragments, getSupportFragmentManager());
