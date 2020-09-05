@@ -12,18 +12,38 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/newsToolBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/Theme.AppCompat.Light"
-            app:title="@string/news" />
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/newsTab"
+            app:title="@string/news"
+            app:menu="@menu/search_menu"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            app:tabMode="scrollable"
-            style="@style/TabLayoutTheme"/>
+            app:layout_constraintTop_toBottomOf="@+id/newsToolBar"
+            android:orientation="horizontal">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/newsTab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:background="?android:windowBackground"
+                app:tabMode="scrollable"
+                style="@style/TabLayoutTheme"/>
+            <Button
+                android:id="@+id/tabBarButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/edit"
+                android:background="?android:windowBackground"
+                />
+        </LinearLayout>
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
 
