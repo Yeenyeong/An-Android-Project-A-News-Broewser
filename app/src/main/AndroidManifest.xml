@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchActivity"/>
-        <activity android:name=".CustomChannelActivity"/>
+        <activity android:name=".CustomChannelActivity"
+            android:theme="@style/dialogStyle"/>
     </application>
 
 </manifest>
