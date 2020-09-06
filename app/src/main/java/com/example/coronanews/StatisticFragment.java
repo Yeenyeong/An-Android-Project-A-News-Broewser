@@ -1,12 +1,16 @@
 package com.example.coronanews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -25,11 +29,11 @@ public class StatisticFragment extends Fragment {
     String[] titles = new String[]{"国内", "国际"};
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news_statistic, container, false);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.n_s_toolBar);
-        toolbar.setTitle(R.string.statistic);
+        TextView textView = (TextView) view.findViewById(R.id.title);
+        textView.setText(R.string.statistic);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.n_s_Tab);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
@@ -53,6 +57,16 @@ public class StatisticFragment extends Fragment {
 
         Button button = (Button) view.findViewById(R.id.n_s_tabButton);
         button.setVisibility(View.GONE);
+
+        TextView searchBar = (TextView) view.findViewById(R.id.search_bar);
+        searchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("clicked", "onClick: clicked");
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

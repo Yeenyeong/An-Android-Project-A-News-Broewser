@@ -5,5 +5,6 @@
         android:id="@+id/search_menu"
         android:title="@string/search"
         app:actionViewClass="android.widget.SearchView"
+        android:iconifiedByDefault="false"
         app:showAsAction="always"/>
 </menu>
