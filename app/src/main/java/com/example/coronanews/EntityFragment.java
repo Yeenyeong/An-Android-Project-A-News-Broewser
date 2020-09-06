@@ -22,7 +22,6 @@ public class EntityFragment extends Fragment {
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("clicked", "onClick: clicked");
                 Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
             }

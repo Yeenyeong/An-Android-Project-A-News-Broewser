@@ -10,11 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class StatisticContentTest extends Fragment {
-    String s;
-    StatisticContentTest(String s) {
-        this.s = s;
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

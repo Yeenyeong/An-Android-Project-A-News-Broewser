@@ -42,7 +42,7 @@ public class StatisticFragment extends Fragment {
         StatisticPagerAdapter pagerAdapter = new StatisticPagerAdapter(fragments, getSupportFragmentManager());
 
         for (String title : titles) {
-            Fragment fragment = new StatisticContentTest(title);
+            Fragment fragment = new StatisticContentTest();
             fragments.add(fragment);
             //关于此处和PagerAdapter使用hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
             viewPager.setId(fragment.hashCode());
@@ -63,7 +63,6 @@ public class StatisticFragment extends Fragment {
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("clicked", "onClick: clicked");
                 Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
             }

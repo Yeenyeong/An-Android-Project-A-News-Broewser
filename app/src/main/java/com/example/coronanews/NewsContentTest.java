@@ -18,12 +18,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class NewsContentTest extends Fragment {
-    private String tabName;
     private List<String> dataSet = new ArrayList<>();
-
-    NewsContentTest(String t) {
-        this.tabName = t;
-    }
 
     @Nullable
     @Override
