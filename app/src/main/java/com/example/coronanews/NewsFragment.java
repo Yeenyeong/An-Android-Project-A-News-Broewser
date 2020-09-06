@@ -57,7 +57,8 @@ public class NewsFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"button",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), CustomChannelActivity.class);
+                startActivity(intent);
             }
         });
 
