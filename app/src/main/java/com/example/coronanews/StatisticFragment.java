@@ -59,6 +59,7 @@ public class StatisticFragment extends Fragment {
         button.setVisibility(View.GONE);
 
         TextView searchBar = (TextView) view.findViewById(R.id.search_bar);
+        searchBar.setText("国内外疫情数据");
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

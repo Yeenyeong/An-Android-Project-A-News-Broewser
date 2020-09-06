@@ -23,50 +23,64 @@ public class MainActivity extends AppCompatActivity {
 
     Fragment newsFragment = new NewsFragment();
     Fragment statisticFragment = new StatisticFragment();
+    Fragment entityFragment = new EntityFragment();
+    Fragment scholarFragment = new ScholarFragment();
+    Fragment userFragment = new UserFragment();
 
     public void init(){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.container, newsFragment).add(R.id.container,statisticFragment);
+        transaction.add(R.id.container, newsFragment).add(R.id.container,statisticFragment).add(R.id.container, entityFragment)
+        .add(R.id.container, scholarFragment).add(R.id.container, userFragment);
         transaction.commit();
         showFragment(R.id.menu_home);
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.bottomPanel);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.menu_home){
-                    showFragment(R.id.menu_home);
+                if(showFragment(item.getItemId()))
                     return true;
-                }else if(item.getItemId()==R.id.menu_statistic){
-                    showFragment(R.id.menu_statistic);
-                    return true;
-                }
                 return false;
             }
         });
     }
 
-    private void showFragment(int menuId){
+    private boolean showFragment(int menuId){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (menuId){
             case R.id.menu_home:
-                transaction.hide(statisticFragment);
+                transaction.hide(statisticFragment).hide(entityFragment).hide(scholarFragment).hide(userFragment);
                 transaction.show(newsFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             case R.id.menu_statistic:
-                transaction.hide(newsFragment);
+                transaction.hide(newsFragment).hide(entityFragment).hide(scholarFragment).hide(userFragment);
                 transaction.show(statisticFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
-            case R.id.menu_entry:
+            case R.id.menu_entity:
+                transaction.hide(newsFragment).hide(statisticFragment).hide(scholarFragment).hide(userFragment);
+                transaction.show(entityFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
                 break;
             case R.id.menu_scholar:
+                transaction.hide(newsFragment).hide(statisticFragment).hide(entityFragment).hide(userFragment);
+                transaction.show(scholarFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
                 break;
             case R.id.menu_user:
+                transaction.hide(newsFragment).hide(statisticFragment).hide(entityFragment).hide(scholarFragment);
+                transaction.show(userFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
                 break;
+            default:
+                return false;
         }
+        return true;
     }
 
 }

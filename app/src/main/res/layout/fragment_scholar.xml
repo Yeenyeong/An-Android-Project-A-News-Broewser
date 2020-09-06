@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/scholar_appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/n_s_toolBar"
+            android:id="@+id/scholar_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
@@ -24,15 +26,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/scholar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:textSize="23sp"
                     android:textColor="@color/corona_background"
-                    android:text="@string/news"/>
+                    android:text="@string/scholar"/>
                 <TextView
-                    android:id="@+id/search_bar"
+                    android:id="@+id/scholar_search_bar"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textSize="15sp"
@@ -45,43 +47,15 @@
                     android:hint="@string/search"/>
 
             </LinearLayout>
-
-
         </androidx.appcompat.widget.Toolbar>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/n_s_toolBar"
-            android:orientation="horizontal">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/n_s_Tab"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"
-                android:background="?android:windowBackground"
-                app:tabSelectedTextColor="@color/colorPrimary"
-                app:tabMode="scrollable"
-                style="@style/TabLayoutTheme"/>
-            <Button
-                android:id="@+id/n_s_tabButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/edit"
-                android:background="?android:windowBackground"
-                />
-        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/n_s_ViewPager"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
+        android:gravity="center"
+        android:text="@string/scholar">
+    </TextView>
 
 
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

@@ -2,7 +2,7 @@
     <string name="app_name">CoronaNews</string>
     <string name="news">首页</string>
     <string name="statistic">数据</string>
-    <string name="entry">图谱</string>
+    <string name="entity">图谱</string>
     <string name="scholar">学者</string>
     <string name="user">我的</string>
     <string name="search">搜索</string>
@@ -11,5 +11,8 @@
     <string name="baseline">我是有底线的</string>
     <string name="toolbar">工具栏</string>
     <string name="contentTest">内容测试</string>
+    <string name="history">历史</string>
+    <string name="like">收藏</string>
+    <string name="quit">退出</string>
 
 </resources>

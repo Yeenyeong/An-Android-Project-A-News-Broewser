@@ -10,9 +10,9 @@
         android:icon="@drawable/statistic"
         android:title="@string/statistic" />
     <item
-        android:id="@+id/menu_entry"
-        android:icon="@drawable/entry"
-        android:title="@string/entry" />
+        android:id="@+id/menu_entity"
+        android:icon="@drawable/entity"
+        android:title="@string/entity" />
     <item
         android:id="@+id/menu_scholar"
         android:icon="@drawable/scholar"

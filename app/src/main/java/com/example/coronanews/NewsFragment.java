@@ -62,6 +62,7 @@ public class NewsFragment extends Fragment {
         });
 
         TextView searchBar = (TextView) view.findViewById(R.id.search_bar);
+        searchBar.setText("搜索新闻  |  论文");
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
