@@ -12,12 +12,18 @@ public abstract class NewsRecycleViewScrollListener extends RecyclerView.OnScrol
         super.onScrollStateChanged(recyclerView, newState);
         LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-            int lastItemPosition = manager.findLastCompletelyVisibleItemPosition();
             int itemCount = manager.getItemCount();
 
+            int lastItemPosition = manager.findLastCompletelyVisibleItemPosition();
             if (lastItemPosition == (itemCount - 1) && isSlidingUp) {
                 onLoadMore();
             }
+
+//            int firstItemPosition = manager.findFirstCompletelyVisibleItemPosition();
+//            if(firstItemPosition==0 && !isSlidingUp){
+//                onRefreshData();
+//            }
+
         }
     }
 
@@ -28,4 +34,6 @@ public abstract class NewsRecycleViewScrollListener extends RecyclerView.OnScrol
     }
 
     public abstract void onLoadMore();
+//
+//    public abstract void onRefreshData();
 }

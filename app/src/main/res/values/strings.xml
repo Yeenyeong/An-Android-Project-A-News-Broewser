@@ -14,5 +14,8 @@
     <string name="history">历史</string>
     <string name="like">收藏</string>
     <string name="quit">退出</string>
+    <string name="newsTitle">标题</string>
+    <string name="newsBody">正文</string>
+    <string name="newsSource">来源:无</string>
 
 </resources>

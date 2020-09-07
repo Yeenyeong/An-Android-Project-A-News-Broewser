@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     Fragment newsFragment, statisticFragment,entityFragment,scholarFragment,userFragment;

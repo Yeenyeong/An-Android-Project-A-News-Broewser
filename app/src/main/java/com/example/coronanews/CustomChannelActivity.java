@@ -60,31 +60,31 @@ public class CustomChannelActivity extends AppCompatActivity {
         data.put("推荐频道", recommendChannelList1);
 
         channelView.setChannelFixedCount(1);
-        channelView.setInsertRecommendPosition(6);
+//        channelView.setInsertRecommendPosition(6);
         channelView.setStyleAdapter(new MyAdapter());
-        channelView.setOnChannelListener(new ChannelListenerAdapter() {
-            @Override
-            public void channelItemClick(int position, Channel channel) {
-                Log.i(TAG, position + ".." + channel);
-            }
-
-            @Override
-            public void channelEditStateItemClick(int position, Channel channel) {
-                Log.i(TAG + "EditState:", position + ".." + channel);
-            }
-
-            @Override
-            public void channelEditFinish(List<Channel> channelList) {
-                Log.i(TAG, channelList.toString());
-                Log.i(TAG, channelView.isChange() + "");
-                Log.i(TAG, channelView.getOtherChannel().toString());
-            }
-
-            @Override
-            public void channelEditStart() {
-                Log.i(TAG, "channelEditStart");
-            }
-        });
+//        channelView.setOnChannelListener(new ChannelListenerAdapter() {
+//            @Override
+//            public void channelItemClick(int position, Channel channel) {
+//                Log.i(TAG, position + ".." + channel);
+//            }
+//
+//            @Override
+//            public void channelEditStateItemClick(int position, Channel channel) {
+//                Log.i(TAG + "EditState:", position + ".." + channel);
+//            }
+//
+//            @Override
+//            public void channelEditFinish(List<Channel> channelList) {
+//                Log.i(TAG, channelList.toString());
+//                Log.i(TAG, channelView.isChange() + "");
+//                Log.i(TAG, channelView.getOtherChannel().toString());
+//            }
+//
+//            @Override
+//            public void channelEditStart() {
+//                Log.i(TAG, "channelEditStart");
+//            }
+//        });
     }
 
     class MyAdapter extends BaseStyleAdapter<MyAdapter.MyViewHolder> {

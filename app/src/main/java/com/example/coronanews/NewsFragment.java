@@ -27,15 +27,17 @@ public class NewsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_news_statistic, container, false);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.n_s_Tab);
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.n_s_ViewPager);
+        final ViewPager viewPager = view.findViewById(R.id.n_s_ViewPager);
         ArrayList<Fragment> fragments = new ArrayList<>();
         NewsPagerAdapter pagerAdapter = new NewsPagerAdapter(fragments, getSupportFragmentManager());
 
-        TextView editText = (TextView) view.findViewById(R.id.search_bar);
-
-
-        for (String title : titles) {
-            Fragment fragment = new NewsContentTest();
+        for (int i = 0; i < 3; i++) {
+            Fragment fragment;
+            //TODO:加上聚类的fragment
+            if (i == 0)
+                fragment = new Fragment();
+            else
+                fragment = new NewsContent(titles[i]);
             fragments.add(fragment);
             //关于此处和PagerAdapter使用hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
             viewPager.setId(fragment.hashCode());
@@ -49,7 +51,7 @@ public class NewsFragment extends Fragment {
         }
 
         final Context context = getContext();
-        Button button = (Button) view.findViewById(R.id.n_s_tabButton);
+        Button button =  view.findViewById(R.id.n_s_tabButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +60,7 @@ public class NewsFragment extends Fragment {
             }
         });
 
-        TextView searchBar = (TextView) view.findViewById(R.id.search_bar);
+        TextView searchBar = view.findViewById(R.id.search_bar);
         searchBar.setText("搜索新闻  |  论文");
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
