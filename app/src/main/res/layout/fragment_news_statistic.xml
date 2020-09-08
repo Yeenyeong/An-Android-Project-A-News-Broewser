@@ -64,14 +64,21 @@
                 app:tabSelectedTextColor="@color/colorPrimary"
                 app:tabMode="scrollable"
                 style="@style/TabLayoutTheme"/>
-            <Button
-                android:id="@+id/n_s_tabButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/edit"
-                android:background="?android:windowBackground"
-                />
+<!--            <Button-->
+<!--                android:id="@+id/n_s_tabButton"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/edit"-->
+<!--                android:background="?android:windowBackground"-->
+<!--                />-->
+                <ImageView
+                    android:id="@+id/n_s_tabButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/menu"/>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

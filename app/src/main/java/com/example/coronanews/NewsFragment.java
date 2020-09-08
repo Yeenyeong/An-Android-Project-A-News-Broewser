@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -52,7 +53,7 @@ public class NewsFragment extends Fragment {
 
         setUpTabs();
 
-        Button button = view.findViewById(R.id.n_s_tabButton);
+        ImageView button = view.findViewById(R.id.n_s_tabButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
