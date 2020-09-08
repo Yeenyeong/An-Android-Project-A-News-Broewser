@@ -66,7 +66,7 @@ public class NewsFragment extends Fragment {
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                Intent intent = new Intent(getActivity(), NewsSearchActivity.class);
                 startActivity(intent);
             }
         });

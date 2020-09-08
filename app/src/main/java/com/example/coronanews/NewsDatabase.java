@@ -82,6 +82,9 @@ interface NewsDao{
     @Query("SELECT * FROM news WHERE hasRead = 1")
     List<News> getRead();
 
+    @Query("SELECT id FROM news WHERE title LIKE '%'||:s||'%'")
+    List<String> search(String s);
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insert(News news);
 

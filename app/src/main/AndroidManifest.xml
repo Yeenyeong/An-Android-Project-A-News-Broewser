@@ -27,6 +27,9 @@
         <activity android:name=".NewsSinglePageActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
+        <activity android:name=".NewsSearchActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>
