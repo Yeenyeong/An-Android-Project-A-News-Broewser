@@ -161,7 +161,7 @@ class SearchRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             //设置正文
             viewHolder.newsBody.setText(body);
             if (body.length() == 0)
-                viewHolder.newsBody.setVisibility(View.GONE);
+                viewHolder.newsBody.setText("无正文");
 
             //设置来源
             if (news.getType().equals("news")) {
@@ -169,7 +169,7 @@ class SearchRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 source = "来源:" + source;
                 viewHolder.newsSource.setText(source);
             } else {
-                viewHolder.newsSource.setVisibility(View.GONE);
+                viewHolder.newsSource.setText(news.getAuthor().get(0));
             }
 
             viewHolder.newsItem.setOnClickListener(new View.OnClickListener() {
