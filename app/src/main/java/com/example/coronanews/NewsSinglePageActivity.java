@@ -61,7 +61,6 @@ public class NewsSinglePageActivity extends AppCompatActivity {
             public void run() {
                 NewsDao newsDao = NewsContent.getNewsDao();
                 news = newsDao.findById(id);
-                System.out.println("create"+"---"+id+"---"+news.isHasRead());
                 handler.sendEmptyMessage(FOUND_NEWS);
             }
         }).start();

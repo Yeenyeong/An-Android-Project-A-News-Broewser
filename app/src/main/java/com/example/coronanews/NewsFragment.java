@@ -108,7 +108,6 @@ public class NewsFragment extends Fragment {
         SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         int tabNewsStatus = sharedPref.getInt(TAB_NEWS_STATUS, TAB_SELECTED_FIRST);
         int tabPaperStatus = sharedPref.getInt(TAB_PAPER_STATUS, TAB_SELECTED_SECOND);
-        System.out.println(tabNewsStatus + "   " + tabPaperStatus);
         tabLayout.removeAllTabs();
 
         int current = viewPager.getCurrentItem();
