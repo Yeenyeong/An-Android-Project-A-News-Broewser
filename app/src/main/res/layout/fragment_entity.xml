@@ -43,7 +43,7 @@
                     android:layout_height="match_parent"
                     android:singleLine="true"
                     android:gravity="center"
-                    android:background="@drawable/edit_background"
+                    android:background="@drawable/background_edit"
                     android:hint="@string/search"/>
 
             </LinearLayout>

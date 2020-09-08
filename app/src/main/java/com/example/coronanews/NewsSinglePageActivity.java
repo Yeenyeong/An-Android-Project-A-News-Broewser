@@ -1,6 +1,7 @@
 package com.example.coronanews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -84,7 +85,9 @@ public class NewsSinglePageActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.news_share:
-
+                Intent intent = new Intent(this,NewsSharePageActivity.class);
+                intent.putExtra("TITLE",news.getTitle());
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);
