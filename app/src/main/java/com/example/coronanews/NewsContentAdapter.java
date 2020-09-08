@@ -91,7 +91,7 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             }
         };
 
-        final NewsDao newsDao = NewsContent.getNewsDatabase().newsDao();
+        final NewsDao newsDao = NewsContent.getNewsDao();
 
         new Thread(new Runnable() {
             @Override

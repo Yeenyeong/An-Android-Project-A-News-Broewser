@@ -79,7 +79,7 @@ public class NewsNetworking extends Thread {
             JSONObject content = newsContent.get(i);
             News news = parseJson(content);
             dataSet.add(news);
-            NewsDao newsDao = NewsContent.getNewsDatabase().newsDao();
+            NewsDao newsDao = NewsContent.getNewsDao();
             newsDao.insert(news);
         }
     }
@@ -104,6 +104,7 @@ public class NewsNetworking extends Thread {
                 news.setAuthor(list);
             }
         }
+        news.setHasRead(false);
         return news;
     }
 }

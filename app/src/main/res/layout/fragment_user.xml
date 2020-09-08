@@ -82,7 +82,7 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/like" />
+                app:srcCompat="@drawable/cache" />
 
             <Button
                 android:id="@+id/user_like"
@@ -93,7 +93,7 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
                 android:background="@color/corona_background"
-                android:text="@string/like"
+                android:text="@string/cache"
                 android:textSize="18sp"
                 app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>

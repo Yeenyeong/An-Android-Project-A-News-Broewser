@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
+import androidx.room.RoomDatabase;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.LinkedList;
@@ -48,7 +49,8 @@ abstract class NewsRecycleViewScrollListener extends RecyclerView.OnScrollListen
 public class NewsContent extends Fragment {
 
     private static NewsDatabase db;
-    public static NewsDatabase getNewsDatabase() { return db; }
+    private static NewsDao newsDao;
+    public static NewsDao getNewsDao() { return newsDao; }
 
     private int pageCount = 1;
     private List<News> dataSet = new LinkedList<>();
@@ -65,7 +67,9 @@ public class NewsContent extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        db = Room.databaseBuilder(getContext().getApplicationContext(), NewsDatabase.class,"news-database").build();
+        db = Room.databaseBuilder(getContext().getApplicationContext(), NewsDatabase.class,"news-database")
+                .setJournalMode(RoomDatabase.JournalMode.TRUNCATE).build();
+        newsDao = db.newsDao();
 
         View view = inflater.inflate(R.layout.news_recycle_view, container, false);
 

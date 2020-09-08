@@ -36,8 +36,7 @@ class News{
     private String type;
     private String source;
     private String time;
-    private boolean hasRead = false;
-    private boolean hasLiked = false;
+    private boolean hasRead;
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
@@ -55,8 +54,6 @@ class News{
     public void setTime(String time) { this.time = time; }
     public boolean isHasRead() { return hasRead; }
     public void setHasRead(boolean hasRead) { this.hasRead = hasRead; }
-    public boolean isHasLiked() { return hasLiked; }
-    public void setHasLiked(boolean hasLiked) { this.hasLiked = hasLiked; }
 }
 
 class TagsConverter {
@@ -84,9 +81,6 @@ interface NewsDao{
 
     @Query("SELECT * FROM news WHERE hasRead = 1")
     List<News> getRead();
-
-    @Query("SELECT * FROM news WHERE hasLiked = 1")
-    List<News> getLike();
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insert(News news);

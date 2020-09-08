@@ -1,5 +1,7 @@
 package com.example.coronanews;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -7,6 +9,7 @@ import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -14,25 +17,30 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewsSinglePageActivity extends AppCompatActivity {
-
-    static TextView newsTitle, newsTime, newsSource, newsBody, newsTopTitle;
+    final int DISLIKE_NEWS = -10, LIKE_NEWS = -20, FOUND_NEWS = -30;
+    TextView newsTitle, newsTime, newsSource, newsBody, newsTopTitle;
     News news;
-
-    static Handler handler = new Handler(Looper.myLooper()){
+    String id;
+    Handler handler = new Handler(Looper.myLooper()){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            News news = (News) msg.obj;
-            newsTitle.setText(news.getTitle());
-            newsTime.setText(news.getTime());
-            String source = "";
-            if (news.getType().equals("news"))
-                source = news.getSource();
-            else if (news.getType().equals("paper"))
-                source =  news.getAuthor().get(0);
-            newsSource.setText(source);
-            newsTopTitle.setText(source);
-            newsBody.setText(news.getBody());
+            if (msg.what == DISLIKE_NEWS){
+                Toast.makeText(NewsSinglePageActivity.this, "取消收藏", Toast.LENGTH_SHORT).show();
+            } else if(msg.what == LIKE_NEWS){
+                Toast.makeText(NewsSinglePageActivity.this, "已收藏", Toast.LENGTH_SHORT).show();
+            } else if(msg.what == FOUND_NEWS){
+                newsTitle.setText(news.getTitle());
+                newsTime.setText(news.getTime());
+                String source = "";
+                if (news.getType().equals("news"))
+                    source = news.getSource();
+                else if (news.getType().equals("paper"))
+                    source =  news.getAuthor().get(0);
+                newsSource.setText(source);
+                newsTopTitle.setText(source);
+                newsBody.setText(news.getBody());
+            }
         }
     };
 
@@ -45,16 +53,15 @@ public class NewsSinglePageActivity extends AppCompatActivity {
         newsSource = findViewById(R.id.news_SP_source);
         newsBody = findViewById(R.id.news_SP_body);
         newsTopTitle = findViewById(R.id.news_page_top_title);
+        id = getIntent().getStringExtra("ID");
 
-        final String id = getIntent().getStringExtra("ID");
-        final NewsDao newsDao = NewsContent.getNewsDatabase().newsDao();
         new Thread(new Runnable() {
             @Override
             public void run() {
+                NewsDao newsDao = NewsContent.getNewsDao();
                 news = newsDao.findById(id);
-                Message msg = handler.obtainMessage();
-                msg.obj = news;
-                handler.sendMessage(msg);
+                System.out.println("create"+"---"+id+"---"+news.isHasRead());
+                handler.sendEmptyMessage(FOUND_NEWS);
             }
         }).start();
 
@@ -72,8 +79,13 @@ public class NewsSinglePageActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==android.R.id.home){
-            finish();
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.news_share:
+
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -12,7 +12,7 @@
     <string name="toolbar">工具栏</string>
     <string name="contentTest">内容测试</string>
     <string name="history">历史</string>
-    <string name="like">收藏</string>
+    <string name="cache">缓存</string>
     <string name="quit">退出</string>
     <string name="newsTitle">标题</string>
     <string name="newsBody">正文</string>
