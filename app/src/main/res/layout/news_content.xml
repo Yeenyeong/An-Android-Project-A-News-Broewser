@@ -26,7 +26,7 @@
         android:layout_marginBottom="5dp"/>
     <TextView
         android:id="@+id/newsSource"
-        android:hint="@string/newsSource"
+        android:text="@string/newsSource"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
