@@ -27,6 +27,7 @@ public class NewsFragment extends Fragment {
     ViewPager viewPager;
     NewsPagerAdapter pagerAdapter;
     Fragment newsTabFragment, paperTabFragment, clusterTabFragment;
+    ArrayList<Fragment> fragmentList = new ArrayList<>();
     public static final int TAB_SELECTED_FIRST = 1, TAB_SELECTED_SECOND = 2, TAB_PRESERVED = 0;
     public static final String TAB_NEWS_STATUS = "TAB_NEWS_STATUS", TAB_PAPER_STATUS = "TAB_PAPER_STATUS";
 
@@ -38,28 +39,18 @@ public class NewsFragment extends Fragment {
         tabLayout = view.findViewById(R.id.n_s_Tab);
 
         viewPager = view.findViewById(R.id.n_s_ViewPager);
-        ArrayList<Fragment> fragments = new ArrayList<>();
-        pagerAdapter = new NewsPagerAdapter(fragments, getFragmentManager());
+        pagerAdapter = new NewsPagerAdapter(getFragmentManager());
 
         clusterTabFragment = new Fragment();
         newsTabFragment = new NewsContent("新闻");
         paperTabFragment = new NewsContent("论文");
-        fragments.add(clusterTabFragment);
-        fragments.add(newsTabFragment);
-        fragments.add(paperTabFragment);
 
-        for (int i = 0; i < 3; i++) {
-            //关于此处和PagerAdapter使用hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
-            viewPager.setId(fragments.get(i).hashCode());
-            tabLayout.addTab(tabLayout.newTab());
-        }
-        viewPager.setAdapter(pagerAdapter);
-        tabLayout.setupWithViewPager(viewPager, false);
-        String[] titles = new String[]{"聚类", "新闻", "论文"};
-        //设置标题要在最后
-        for (int i = 0; i < 3; i++) {
-            tabLayout.getTabAt(i).setText(titles[i]);
-        }
+        //关于此处和PagerAdapter使用hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
+        viewPager.setId(newsTabFragment.hashCode());
+        viewPager.setId(paperTabFragment.hashCode());
+        viewPager.setId(clusterTabFragment.hashCode());
+
+        setUpTabs();
 
         Button button = view.findViewById(R.id.n_s_tabButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -80,21 +71,19 @@ public class NewsFragment extends Fragment {
             }
         });
 
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(TAB_NEWS_STATUS, TAB_SELECTED_FIRST);
-        editor.putInt(TAB_PAPER_STATUS, TAB_SELECTED_SECOND);
-        editor.commit();
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        setUpTabs();
     }
 
     class NewsPagerAdapter extends FragmentPagerAdapter {
 
-        private List<Fragment> fragmentList;
-
-        public NewsPagerAdapter(List<Fragment> fragmentList, FragmentManager fm) {
+        public NewsPagerAdapter(FragmentManager fm) {
             super(fm);
-            this.fragmentList = fragmentList;
         }
 
         @NonNull
@@ -115,49 +104,50 @@ public class NewsFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-            int tabNewsStatus = sharedPref.getInt(TAB_NEWS_STATUS, TAB_SELECTED_FIRST);
-            int tabPaperStatus = sharedPref.getInt(TAB_PAPER_STATUS, TAB_SELECTED_SECOND);
-            System.out.println(tabNewsStatus + "   " + tabPaperStatus);
-            tabLayout.removeAllTabs();
+    private void setUpTabs() {
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        int tabNewsStatus = sharedPref.getInt(TAB_NEWS_STATUS, TAB_SELECTED_FIRST);
+        int tabPaperStatus = sharedPref.getInt(TAB_PAPER_STATUS, TAB_SELECTED_SECOND);
+        System.out.println(tabNewsStatus + "   " + tabPaperStatus);
+        tabLayout.removeAllTabs();
 
-            ArrayList<Fragment> fragments = new ArrayList<>();
-            fragments.add(clusterTabFragment);
+        int current = viewPager.getCurrentItem();
 
-            List<String> titles = new ArrayList<>();
-            titles.add("聚类");
+        fragmentList.clear();
+        fragmentList.add(clusterTabFragment);
 
-            if (tabNewsStatus == TAB_SELECTED_FIRST) {
-                fragments.add(newsTabFragment);
-                titles.add("新闻");
-            } else if (tabPaperStatus == TAB_SELECTED_FIRST) {
-                fragments.add(paperTabFragment);
+        List<String> titles = new ArrayList<>();
+        titles.add("聚类");
+        if (tabNewsStatus == TAB_PRESERVED){
+            if(tabPaperStatus == TAB_SELECTED_FIRST){
+                titles.add("论文");
+                fragmentList.add(paperTabFragment);
+            }
+        }
+        else if (tabNewsStatus == TAB_SELECTED_FIRST) {
+            titles.add("新闻");
+            fragmentList.add(newsTabFragment);
+            if (tabPaperStatus == TAB_SELECTED_SECOND){
+                fragmentList.add(paperTabFragment);
                 titles.add("论文");
             }
-            if (tabNewsStatus == TAB_SELECTED_SECOND) {
-                fragments.add(newsTabFragment);
-                titles.add("新闻");
-            } else if (tabPaperStatus == TAB_SELECTED_SECOND) {
-                fragments.add(paperTabFragment);
-                titles.add("论文");
-            }
+        } else if (tabNewsStatus == TAB_SELECTED_SECOND) {
+            titles.add("论文");
+            titles.add("新闻");
+            fragmentList.add(paperTabFragment);
+            fragmentList.add(newsTabFragment);
+        }
 
-            for (int i = 0; i < titles.size(); i++) {
-                //关于此处和PagerAdapter使用hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
-                viewPager.setId(fragments.get(i).hashCode());
-                tabLayout.addTab(tabLayout.newTab());
-            }
+        viewPager.setAdapter(pagerAdapter);
+        tabLayout.removeAllTabs();
+        tabLayout.setupWithViewPager(viewPager, false);
+        for (int i = 0; i < titles.size(); i++) {
+            tabLayout.getTabAt(i).setText(titles.get(i));
+        }
 
-            pagerAdapter = new NewsPagerAdapter(fragments, getFragmentManager());
-            tabLayout.setupWithViewPager(viewPager, true);
-            for (int i = 0; i < titles.size(); i++) {
-                tabLayout.getTabAt(i).setText(titles.get(i));
-            }
-
+        if (fragmentList.size()>current){
+            viewPager.setCurrentItem(current);
         }
     }
+
 }
