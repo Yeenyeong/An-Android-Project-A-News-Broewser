@@ -129,18 +129,20 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),NewsSinglePageActivity.class);
-                intent.putExtra("ID",dataSet.get(position).getId());
+                if (position<dataSet.size()){ //设置在刷新时不会超出范围而报错
+                    intent.putExtra("ID",dataSet.get(position).getId());
 
-                dataSet.get(position).setHasRead(true);
+                    dataSet.get(position).setHasRead(true);
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        newsDao.update(dataSet.get(position));
-                    }
-                }).start();
-                notifyItemChanged(position);
-                view.getContext().startActivity(intent);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            newsDao.update(dataSet.get(position));
+                        }
+                    }).start();
+                    notifyItemChanged(position);
+                    view.getContext().startActivity(intent);
+                }
             }
         });
     }
