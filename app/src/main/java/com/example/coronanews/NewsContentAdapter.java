@@ -1,5 +1,9 @@
 package com.example.coronanews;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,20 +32,21 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         if (viewType == TYPE_ITEM) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_content, parent, false);
             return new ItemViewHolder(view);
-        } else if (viewType == TYPE_FOOTER) {
+        } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_footer, parent, false);
             return new FooterViewHolder(view);
         }
-        return null;
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         public TextView newsTitle, newsBody, newsSource;
+        public LinearLayout newsItem;
         public ItemViewHolder(View view) {
             super(view);
-            newsTitle = view.findViewById(R.id.newsTitle);
+            newsTitle = view.findViewById(R.id.news_SP_title);
             newsBody = view.findViewById(R.id.newsBody);
             newsSource = view.findViewById(R.id.newsSource);
+            newsItem = view.findViewById(R.id.newsItem);
         }
     }
 
@@ -53,9 +58,9 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public FooterViewHolder(View view) {
             super(view);
-            loading = (ProgressBar) view.findViewById(R.id.pb_loading);
-            textView = (TextView) view.findViewById(R.id.tv_loading);
-            linearLayout = (LinearLayout) view.findViewById(R.id.ll_end);
+            loading = view.findViewById(R.id.pb_loading);
+            textView = view.findViewById(R.id.tv_loading);
+            linearLayout = view.findViewById(R.id.ll_end);
         }
     }
 
@@ -68,7 +73,33 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     /***
      * 在这里设置新闻内容
      */
-    public void setItem (ItemViewHolder viewHolder, int position){
+    public void setItem (final ItemViewHolder viewHolder, final int position){
+
+        final Handler handler = new Handler(Looper.myLooper()){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                if (dataSet.get(position).isHasRead()){
+                    viewHolder.newsTitle.setTextColor(viewHolder.newsTitle.getResources().getColor(R.color.colorHasRead));
+                    viewHolder.newsBody.setTextColor(viewHolder.newsTitle.getResources().getColor(R.color.colorHasRead));
+                    viewHolder.newsSource.setTextColor(viewHolder.newsTitle.getResources().getColor(R.color.colorHasRead));
+                } else {
+                    viewHolder.newsTitle.setTextColor(viewHolder.newsTitle.getResources().getColor(R.color.colorUnReadTitle));
+                    viewHolder.newsBody.setTextColor(viewHolder.newsTitle.getResources().getColor(R.color.colorUnReadBody));
+                    viewHolder.newsSource.setTextColor(viewHolder.newsTitle.getResources().getColor(R.color.colorUnReadSource));
+                }
+            }
+        };
+
+        final NewsDao newsDao = NewsContent.getNewsDatabase().newsDao();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dataSet.set(position, newsDao.findById(dataSet.get(position).getId()));
+                handler.sendEmptyMessage(0);
+            }
+        }).start();
 
         //设置标题
         viewHolder.newsTitle.setText(dataSet.get(position).getTitle());
@@ -90,6 +121,28 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }else {
             viewHolder.newsSource.setVisibility(View.GONE);
         }
+
+        /***
+         * 设置新闻条目的点击事件
+         */
+        viewHolder.newsItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),NewsSinglePageActivity.class);
+                intent.putExtra("ID",dataSet.get(position).getId());
+
+                dataSet.get(position).setHasRead(true);
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        newsDao.update(dataSet.get(position));
+                    }
+                }).start();
+                notifyItemChanged(position);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

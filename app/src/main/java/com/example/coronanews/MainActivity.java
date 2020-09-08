@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static boolean isExit = false;  // 标识是否退出
 
-    private static Handler mHandler = new Handler() {
+    private static Handler mHandler = new Handler(Looper.myLooper()) {
 
         @Override
         public void handleMessage(Message msg) {

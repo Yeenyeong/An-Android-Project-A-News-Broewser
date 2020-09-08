@@ -17,5 +17,8 @@
     <string name="newsTitle">标题</string>
     <string name="newsBody">正文</string>
     <string name="newsSource">来源:无</string>
+    <string name="share">分享</string>
+    <string name="news_page_title">新闻详情</string>
+    <string name="preference_file_key">com.example.coronanews.PREFERENCE_FILE_KEY</string>
 
 </resources>
