@@ -8,17 +8,15 @@
 
 目前应用可用的功能如下：
 
-![Screenshot from 2020-09-09 17-39-40](/home/hyman/AndroidStudioProjects/CoronaNews/Introduction Img/Screenshot from 2020-09-09 17-39-40.png)
+![image](https://github.com/Yeenyeong/An-Android-Project-A-News-Broewser/blob/master/Introduction%20Img/Screenshot%20from%202020-09-09%2017-39-40.png)
 
-![Screenshot from 2020-09-09 17-40-06](/home/hyman/AndroidStudioProjects/CoronaNews/Introduction Img/Screenshot from 2020-09-09 17-40-06.png)
+![image](https://github.com/Yeenyeong/An-Android-Project-A-News-Broewser/blob/master/Introduction%20Img/Screenshot%20from%202020-09-09%2017-40-06.png)
 
-![Screenshot from 2020-09-09 17-40-21](/home/hyman/AndroidStudioProjects/CoronaNews/Introduction Img/Screenshot from 2020-09-09 17-40-21.png)
+![image](https://github.com/Yeenyeong/An-Android-Project-A-News-Broewser/blob/master/Introduction%20Img/Screenshot%20from%202020-09-09%2017-40-21.png)
 
-![Screenshot from 2020-09-09 17-40-21](/home/hyman/AndroidStudioProjects/CoronaNews/Introduction Img/Screenshot from 2020-09-09 17-40-40.png)
+![image](https://github.com/Yeenyeong/An-Android-Project-A-News-Broewser/blob/master/Introduction%20Img/Screenshot%20from%202020-09-09%2017-40-40.png)
 
+![image](https://github.com/Yeenyeong/An-Android-Project-A-News-Broewser/blob/master/Introduction%20Img/Screenshot%20from%202020-09-09%2017-40-58.png)
 
-
-![Screenshot from 2020-09-09 17-40-58](/home/hyman/AndroidStudioProjects/CoronaNews/Introduction Img/Screenshot from 2020-09-09 17-40-58.png)
-
-![Screenshot from 2020-09-09 17-41-25](/home/hyman/AndroidStudioProjects/CoronaNews/Introduction Img/Screenshot from 2020-09-09 17-41-25.png)
+![image](https://github.com/Yeenyeong/An-Android-Project-A-News-Broewser/blob/master/Introduction%20Img/Screenshot%20from%202020-09-09%2017-41-25.png)
 
