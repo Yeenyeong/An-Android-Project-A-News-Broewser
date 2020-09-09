@@ -25,6 +25,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,12 +60,10 @@ public class StatisticContent extends Fragment {
         expandableListView.setAdapter(adapter);
 
         swipeRefreshLayout.setRefreshing(true);
-//        new StatisticNetworking(regions,countryData,tabName,mHandler).start();
         new StatisticNetworking(tabName, mHandler).start();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                new StatisticNetworking(regions,countryData,tabName,mHandler).start();
                 new StatisticNetworking(tabName, mHandler).start();
             }
         });
@@ -78,13 +78,13 @@ public class StatisticContent extends Fragment {
             Pack pack = (Pack) msg.obj;
             regions.clear();
             regions.addAll(pack.rg);
+            Collections.sort(regions);
             countryData.clear();
             countryData.putAll(pack.mp);
             swipeRefreshLayout.setRefreshing(false);
             adapter.notifyDataSetChanged();
         }
     };
-
 }
 
 class Pack{
@@ -106,8 +106,7 @@ class RegionData {
 
     List<DailyData> data = new ArrayList<>();
 
-    RegionData() {
-    }
+    RegionData() {}
 
     public void addData(int confirmed, int cured, int dead) {
         data.add(new DailyData(confirmed, cured, dead));
