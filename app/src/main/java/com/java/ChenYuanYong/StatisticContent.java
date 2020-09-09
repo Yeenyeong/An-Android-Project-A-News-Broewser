@@ -53,17 +53,18 @@ public class StatisticContent extends Fragment {
         RegionData regionData = new RegionData();
         regionData.addData(0, 0, 0);
         countryData.put("loading...", regionData);
-        new StatisticNetworking(regions, countryData, tabName, mHandler).start();
         expandableListView = view.findViewById(R.id.statistic_expand);
         adapter = new StatisticContentAdapter(regions, countryData, getContext());
         expandableListView.setAdapter(adapter);
 
         swipeRefreshLayout.setRefreshing(true);
-        new StatisticNetworking(regions,countryData,tabName,mHandler).start();
+//        new StatisticNetworking(regions,countryData,tabName,mHandler).start();
+        new StatisticNetworking(tabName, mHandler).start();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new StatisticNetworking(regions,countryData,tabName,mHandler).start();
+//                new StatisticNetworking(regions,countryData,tabName,mHandler).start();
+                new StatisticNetworking(tabName, mHandler).start();
             }
         });
 
@@ -75,12 +76,23 @@ public class StatisticContent extends Fragment {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             //TODO:数据改变了
+            Pack pack = (Pack) msg.obj;
+            regions.clear();
+            regions.addAll(pack.rg);
+            countryData.clear();
+            countryData.putAll(pack.mp);
             swipeRefreshLayout.setRefreshing(false);
             adapter.notifyDataSetChanged();
         }
     };
 
 }
+
+class Pack{
+    List<String> rg;
+    Map<String, RegionData> mp;
+}
+
 
 class RegionData {
     public class DailyData {
@@ -113,22 +125,18 @@ class RegionData {
 
 class StatisticNetworking extends Thread {
 
-    List<String> regions;
-    Map<String, RegionData> countryData;
+    List<String> regions = new ArrayList<>();
+    Map<String, RegionData> countryData = new HashMap<>();
     String tabName;
     private Handler mHandler;
 
-    StatisticNetworking(List<String> regions, Map<String, RegionData> countryData, String tabName, Handler mHandler) {
-        this.regions = regions;
-        this.countryData = countryData;
+    StatisticNetworking(String tabName, Handler mHandler) {
         this.tabName = tabName;
         this.mHandler = mHandler;
     }
 
     public void run() {
         try {
-            regions.clear();
-            countryData.clear();
             URL url = new URL("https://covid-dashboard.aminer.cn/api/dist/epidemic.json");
             HttpURLConnection coon = (HttpURLConnection) url.openConnection();
             coon.setRequestMethod("GET");
@@ -143,7 +151,13 @@ class StatisticNetworking extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mHandler.sendEmptyMessage(0);
+        Message message = mHandler.obtainMessage();
+        Pack pack = new Pack();
+        pack.mp = countryData;
+        pack.rg = regions;
+        message.obj = pack;
+        mHandler.sendMessage(message);
+//        mHandler.sendEmptyMessage(0);
     }
 
     private void parseData(String msg) {
