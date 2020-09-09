@@ -75,7 +75,6 @@ public class StatisticContent extends Fragment {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            //TODO:数据改变了
             Pack pack = (Pack) msg.obj;
             regions.clear();
             regions.addAll(pack.rg);
