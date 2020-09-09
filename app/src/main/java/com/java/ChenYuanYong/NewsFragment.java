@@ -34,11 +34,11 @@ public class NewsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news_statistic, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
 
-        tabLayout = view.findViewById(R.id.n_s_Tab);
+        tabLayout = view.findViewById(R.id.news_Tab);
 
-        viewPager = view.findViewById(R.id.n_s_ViewPager);
+        viewPager = view.findViewById(R.id.news_ViewPager);
         pagerAdapter = new NewsPagerAdapter(getFragmentManager());
 
         clusterTabFragment = new Fragment();
@@ -52,7 +52,7 @@ public class NewsFragment extends Fragment {
 
         setUpTabs();
 
-        ImageView button = view.findViewById(R.id.n_s_tabButton);
+        ImageView button = view.findViewById(R.id.news_tabButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +61,7 @@ public class NewsFragment extends Fragment {
             }
         });
 
-        TextView searchBar = view.findViewById(R.id.search_bar);
+        TextView searchBar = view.findViewById(R.id.news_search_bar);
         searchBar.setText("搜索新闻  |  论文");
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override

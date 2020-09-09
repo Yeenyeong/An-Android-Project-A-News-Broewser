@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -25,22 +26,16 @@ public class StatisticFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news_statistic, container, false);
+        View view = inflater.inflate(R.layout.fragment_statistic, container, false);
 
-        TextView textView = (TextView) view.findViewById(R.id.title);
-        textView.setText(R.string.statistic);
-
-        Toolbar toolbar = view.findViewById(R.id.n_s_toolBar);
-        toolbar.setVisibility(View.GONE);
-
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.n_s_Tab);
+        TabLayout tabLayout = view.findViewById(R.id.statistic_Tab);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.n_s_ViewPager);
-        ArrayList<Fragment> fragments = new ArrayList<>();
+        final ViewPager viewPager = view.findViewById(R.id.statistic_ViewPager);
+        final ArrayList<StatisticContent> fragments = new ArrayList<>();
         StatisticPagerAdapter pagerAdapter = new StatisticPagerAdapter(fragments, getFragmentManager());
 
         for (String title : titles) {
-            Fragment fragment = new StatisticContent(title);
+            StatisticContent fragment = new StatisticContent(title);
             fragments.add(fragment);
             //关于此处和PagerAdapter使用hashcode,参照：https://blog.csdn.net/ZuoLiangZuoXiaoQi/article/details/78255679
             viewPager.setId(fragment.hashCode());
@@ -53,12 +48,6 @@ public class StatisticFragment extends Fragment {
             tabLayout.getTabAt(i).setText(titles[i]);
         }
 
-        ImageView button = view.findViewById(R.id.n_s_tabButton);
-        button.setVisibility(View.GONE);
-
-        TextView searchBar = (TextView) view.findViewById(R.id.search_bar);
-        searchBar.setText("查看国内外疫情数据");
-
         return view;
     }
 }
@@ -66,9 +55,9 @@ public class StatisticFragment extends Fragment {
 
 
 class StatisticPagerAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragmentList;
+    private List<StatisticContent> fragmentList;
 
-    public StatisticPagerAdapter(List<Fragment> fragmentList, FragmentManager fm) {
+    public StatisticPagerAdapter(ArrayList<StatisticContent> fragmentList, FragmentManager fm) {
         super(fm);
         this.fragmentList = fragmentList;
     }

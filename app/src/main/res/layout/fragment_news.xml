@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/n_s_toolBar"
+            android:id="@+id/news_toolBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/news_tool_bar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -32,7 +32,7 @@
                     android:textColor="@color/corona_background"
                     android:text="@string/news"/>
                 <TextView
-                    android:id="@+id/search_bar"
+                    android:id="@+id/news_search_bar"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textSize="15sp"
@@ -52,11 +52,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/n_s_toolBar"
+            app:layout_constraintTop_toBottomOf="@+id/news_toolBar"
             android:orientation="horizontal">
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/n_s_Tab"
+                android:id="@+id/news_Tab"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -64,16 +64,9 @@
                 app:tabSelectedTextColor="@color/colorPrimary"
                 app:tabMode="scrollable"
                 style="@style/TabLayoutTheme"/>
-<!--            <Button-->
-<!--                android:id="@+id/n_s_tabButton"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="@string/edit"-->
-<!--                android:background="?android:windowBackground"-->
-<!--                />-->
+
                 <ImageView
-                    android:id="@+id/n_s_tabButton"
+                    android:id="@+id/news_tabButton"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="@android:color/white"
@@ -83,7 +76,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/n_s_ViewPager"
+        android:id="@+id/news_ViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>

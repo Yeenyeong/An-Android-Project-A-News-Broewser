@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
-
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
+
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="地区"
-            android:gravity="center"
-            android:textSize="15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginRight="1dp"
-            android:textColor="#252525"
-            android:layout_width="0dp"
             android:layout_weight="1.8"
-            android:layout_height="wrap_content"/>
+            android:gravity="center"
+            android:text="地区"
+            android:textColor="#252525"
+            android:textSize="15sp" />
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="确诊"
-            android:gravity="center"
-            android:textSize="15sp"
             android:textColor="#FF2525"
-            android:layout_marginRight="1dp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:textSize="15sp" />
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="死亡"
-            android:gravity="center"
-            android:textSize="15sp"
             android:textColor="#676767"
-            android:layout_marginRight="1dp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:textSize="15sp" />
 
         <TextView
-            android:text="治愈"
-            android:gravity="center"
-            android:textSize="15sp"
-            android:textColor="#67C83D"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:gravity="center"
+            android:text="治愈"
+            android:textColor="#67C83D"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -62,17 +61,20 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:background="#EAEAEA" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/statistic_refresh_swipe"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="15">
-    <ExpandableListView
-        android:id="@+id/statistic_expand"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"
-        android:divider="@null"
-        android:groupIndicator="@null"/>
+
+        <ExpandableListView
+            android:id="@+id/statistic_expand"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:divider="@null"
+            android:groupIndicator="@null" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

@@ -7,12 +7,12 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -35,12 +35,9 @@ public class StatisticContent extends Fragment {
     Map<String, RegionData> countryData = new HashMap<>();
     StatisticContentAdapter adapter;
     ExpandableListView expandableListView;
-
+    SwipeRefreshLayout swipeRefreshLayout;
     String tabName;
-
-    StatisticContent() {
-    }
-
+    StatisticContent() {}
     StatisticContent(String tabName) {
         this.tabName = tabName;
     }
@@ -49,6 +46,9 @@ public class StatisticContent extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.statistic_expand, container, false);
+
+        swipeRefreshLayout = view.findViewById(R.id.statistic_refresh_swipe);
+
         regions.add("loading...");
         RegionData regionData = new RegionData();
         regionData.addData(0, 0, 0);
@@ -58,7 +58,14 @@ public class StatisticContent extends Fragment {
         adapter = new StatisticContentAdapter(regions, countryData, getContext());
         expandableListView.setAdapter(adapter);
 
-        new StatisticNetworking(regions, countryData, tabName, mHandler).start();
+        swipeRefreshLayout.setRefreshing(true);
+        new StatisticNetworking(regions,countryData,tabName,mHandler).start();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new StatisticNetworking(regions,countryData,tabName,mHandler).start();
+            }
+        });
 
         return view;
     }
@@ -68,9 +75,11 @@ public class StatisticContent extends Fragment {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             //TODO:数据改变了
+            swipeRefreshLayout.setRefreshing(false);
             adapter.notifyDataSetChanged();
         }
     };
+
 }
 
 class RegionData {
