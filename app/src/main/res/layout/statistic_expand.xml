@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:text="地区"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="1dp"
+            android:textColor="#252525"
+            android:layout_width="0dp"
+            android:layout_weight="1.8"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="确诊"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="#FF2525"
+            android:layout_marginRight="1dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="死亡"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="#676767"
+            android:layout_marginRight="1dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="治愈"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="#67C83D"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#EAEAEA" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15">
+    <ExpandableListView
+        android:id="@+id/statistic_expand"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:divider="@null"
+        android:groupIndicator="@null"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

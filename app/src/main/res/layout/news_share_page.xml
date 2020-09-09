@@ -8,8 +8,9 @@
     android:background="@drawable/background_share">
 
     <TextView
-        android:text="分享 摘要"
+        android:text="分享摘要"
         android:textSize="16sp"
+        android:gravity="center"
         android:textColor="@android:color/tab_indicator_text"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
