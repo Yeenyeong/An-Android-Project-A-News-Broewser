@@ -17,5 +17,10 @@
     <string name="newsTitle">标题</string>
     <string name="newsBody">正文</string>
     <string name="newsSource">来源:无</string>
-
+    <string name="entityPageTitle"><h1>融合，开源的知识图谱</h1></string>
+    <string name="entityItem">实体</string>
+    <string name="attribute">属性</string>
+    <string name="relation">关系</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

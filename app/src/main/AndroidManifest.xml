@@ -3,6 +3,7 @@
     package="com.example.coronanews">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/corona"
@@ -11,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"
+        <activity android:name=".EntityDetailsActivity"></activity>
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CustomChannelActivity"
-            android:theme="@style/dialogStyle"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SearchActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CustomChannelActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialogStyle" />
     </application>
 
 </manifest>
