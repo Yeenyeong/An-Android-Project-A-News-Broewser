@@ -157,14 +157,13 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
                 msg.obj = bitmap;
                 msg.what = GET_DATA_SUCCESS;
                 handler.sendMessage(msg);
-                Log.e("MyImageView","使用缓存图片");
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }else {
             //使用网络图片
             useNetWorkImage();
-            Log.e("MyImageView","使用网络图片");
         }
     }
 
@@ -182,10 +181,8 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
                 fos.write(buffer, 0, len);
             }
             fos.close();
-            Log.e("MyImageView","缓存成功");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("MyImageView","缓存失败");
         }
     }
 
@@ -199,7 +196,6 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
         for (String string : strings) {
             urlStr2.append(string);
         }
-        Log.e("MyImageView","文件名："+urlStr2.toString());
         return urlStr2.toString();
     }
 
@@ -250,9 +246,7 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
         int realHeight = realImageViewHeight();
 
         int outWidth = options.outWidth;
-        Log.e("网络图片实际的宽度", String.valueOf(outWidth));
         int outHeight = options.outHeight;
-        Log.e("网络图片实际的高度", String.valueOf(outHeight));
 
         //获取比率最大的那个
         if (outWidth > realWith || outHeight > realHeight) {
@@ -260,7 +254,6 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
             int heightRadio = Math.round(outHeight / realHeight);
             inSampleSize = withRadio > heightRadio ? withRadio : heightRadio;
         }
-        Log.e("压缩比率", String.valueOf(inSampleSize));
         return inSampleSize;
     }
 
@@ -288,7 +281,6 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
             //获取屏幕的宽度
             width = displayMetrics.widthPixels;
         }
-        Log.e("ImageView实际的宽度", String.valueOf(width));
         return width;
     }
 
@@ -315,7 +307,6 @@ public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
             //获取ImageView高度的最大值
             height = displayMetrics.heightPixels;
         }
-//        Log.e("ImageView实际的高度", String.valueOf(height));
         return height;
     }
 }

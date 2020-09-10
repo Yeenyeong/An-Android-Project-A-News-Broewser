@@ -67,6 +67,7 @@ public class ScholarFragment extends Fragment {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             swipeRefreshLayout.setRefreshing(false);
+            scholars.clear();
             scholars.addAll((List<Scholar>)msg.obj);
             adapter.notifyDataSetChanged();
         }
