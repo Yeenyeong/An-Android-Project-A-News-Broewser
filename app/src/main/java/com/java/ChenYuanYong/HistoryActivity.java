@@ -153,7 +153,7 @@ class HistoryRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             //设置来源
             if (news.getType().equals("news")) {
                 String source = news.getSource();
-                source = "来源:" + source;
+                source = news.getTime() + "  " + source;
                 viewHolder.newsSource.setText(source);
             } else {
                 viewHolder.newsSource.setText(news.getAuthor().get(0));

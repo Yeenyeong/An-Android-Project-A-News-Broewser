@@ -196,6 +196,7 @@ class ScholarNetworking extends Thread {
             JSONObject profile = singleOne.getJSONObject("profile");
             scholar.affiliation = profile.getString("affiliation");
             scholar.bio = profile.getString("bio");
+            scholar.bio = scholar.bio.replace("<br><br>","\n\n");
             scholar.bio = scholar.bio.replace("<br>","\n\n");
 
             if (profile.has("position"))
@@ -207,12 +208,14 @@ class ScholarNetworking extends Thread {
                 scholar.edu = profile.getString("edu");
             else
                 scholar.edu = "";
+            scholar.edu = scholar.bio.replace("<br><br>","\n\n");
             scholar.edu = scholar.bio.replace("<br>","\n\n");
 
             if (profile.has("work"))
                 scholar.work = profile.getString("work");
             else
                 scholar.work = "";
+            scholar.work = scholar.work.replace("<br><br>","\n\n");
             scholar.work = scholar.work.replace("<br>","\n\n");
 
             scholar.isPassedAway = singleOne.getBoolean("is_passedaway");
