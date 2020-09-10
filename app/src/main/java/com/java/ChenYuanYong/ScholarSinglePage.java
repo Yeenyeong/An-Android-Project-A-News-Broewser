@@ -70,29 +70,7 @@ public class ScholarSinglePage extends AppCompatActivity {
             name = "追忆学者 - "+name;
         scholar_page_title.setText(name);
 
-        toolbar.setOnClickListener(new Toolbar.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if (!isUP) {
-                    isUP = true;
-                    mHandler.sendEmptyMessageDelayed(0, 1500);  // 利用handler延迟发送更改状态信息
-                } else {
-                    nestedScrollView.scrollTo(0,0);
-                }
-            }
-        });
     }
-
-    private static boolean isUP = false;
-
-    private static Handler mHandler = new Handler(Looper.myLooper()) {
-
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            isUP=false;
-        }
-    };
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
