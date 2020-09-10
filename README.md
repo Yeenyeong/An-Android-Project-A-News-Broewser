@@ -1,5 +1,15 @@
-# An-Android-Project-A-News-Broewser
-It's a news browser developed with Java in Android Studio.
-By Huang Han and Chen Yuanyong
+# CoronaNews 新冠新闻
 
-标签增删:https://github.com/chengzhicao/ChannelView
+这个应用是清华大学计算机系小学期的大作业。
+
+在这个应用中，可以查看与新冠疫情相关的新闻，查询知识图谱，查看知疫学者。
+
+应用调用了AMiner的数据接口。
+
+目前应用可用的功能如下：
+
+查看新闻、论文，刷新。
+
+查看新冠肺炎疫情数据。
+
+查看知疫学者以及详情。

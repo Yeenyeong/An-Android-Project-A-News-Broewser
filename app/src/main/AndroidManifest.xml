@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coronanews">
+    package="com.java.ChenYuanYong">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+<<<<<<< HEAD
         <activity android:name=".EntityDetailsActivity"></activity>
         <activity
             android:name=".MainActivity"
+=======
+        <activity android:name="com.java.ChenYuanYong.MainActivity"
+>>>>>>> 4c46d73f81805ca4a43be061a0213742c54df9d3
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".SearchActivity"
             android:screenOrientation="portrait">
@@ -33,6 +38,26 @@
             android:name=".CustomChannelActivity"
             android:screenOrientation="portrait"
             android:theme="@style/dialogStyle" />
+=======
+        <activity android:name="com.java.ChenYuanYong.SearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.java.ChenYuanYong.CustomChannelActivity"
+            android:theme="@style/dialogStyle"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.java.ChenYuanYong.NewsSinglePageActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+        <activity android:name="com.java.ChenYuanYong.NewsSearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.java.ChenYuanYong.NewsSharePageActivity"
+            android:theme="@style/dialogStyle"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.java.ChenYuanYong.HistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ScholarSinglePage"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+>>>>>>> 4c46d73f81805ca4a43be061a0213742c54df9d3
     </application>
 
 </manifest>

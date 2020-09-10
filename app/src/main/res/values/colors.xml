@@ -3,4 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorHasRead">#B2B3B3</color>
+    <color name="colorUnReadTitle">#000000</color>
+    <color name="colorUnReadBody">#605F5F</color>
+    <color name="colorUnReadSource">#939292</color>
 </resources>

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/entity_appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/entity_toolBar"
+            android:id="@+id/news_toolBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
@@ -26,24 +24,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/entity_title"
+                    android:id="@+id/news_tool_bar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:textSize="23sp"
                     android:textColor="@color/corona_background"
-                    android:text="@string/entity"/>
-
-                <SearchView
-                    android:id="@+id/entity_search_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:iconifiedByDefault="false"
-                    android:background="@drawable/edit_background"
-                    android:queryHint="@string/search" />
-
-                <!---TextView
-                    android:id="@+id/entity_search_bar"
+                    android:text="@string/news"/>
+                <TextView
+                    android:id="@+id/news_search_bar"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textSize="15sp"
@@ -52,23 +41,47 @@
                     android:layout_height="match_parent"
                     android:singleLine="true"
                     android:gravity="center"
-<<<<<<< HEAD
-                    android:background="@drawable/edit_background"
-                    android:hint="@string/search"/-->
-=======
                     android:background="@drawable/background_edit"
                     android:hint="@string/search"/>
->>>>>>> 4c46d73f81805ca4a43be061a0213742c54df9d3
 
             </LinearLayout>
+
+
         </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/news_toolBar"
+            android:orientation="horizontal">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/news_Tab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:background="?android:windowBackground"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabMode="scrollable"
+                style="@style/TabLayoutTheme"/>
+
+                <ImageView
+                    android:id="@+id/news_tabButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/menu"/>
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/news_ViewPager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/entity_container" />
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
 
 
-</LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
