@@ -34,7 +34,6 @@ public class EntityFragment extends Fragment {
 
             entity_list.clear();
             entity_list.addAll((ArrayList<Entity>)msg.obj);
-
             FragmentTransaction frag_trans = getChildFragmentManager().beginTransaction();
             search_back_frag.setEntity_list(entity_list);
             frag_trans.hide(home_frag).show(search_back_frag);

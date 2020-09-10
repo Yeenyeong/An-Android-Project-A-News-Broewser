@@ -4,11 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/entity_search_back_info"
-        android:textSize="10dp"/>
+        android:id="@+id/entity_search_back_info" />
 
     <ListView
         android:layout_width="match_parent"
