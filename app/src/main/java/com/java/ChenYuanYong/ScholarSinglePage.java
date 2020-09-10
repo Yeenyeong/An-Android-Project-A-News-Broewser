@@ -2,20 +2,27 @@ package com.java.ChenYuanYong;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 
 public class ScholarSinglePage extends AppCompatActivity {
+    NestedScrollView nestedScrollView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        Scholar scholar = (Scholar) intent.getSerializableExtra("SCHOLAR");
+        final Scholar scholar = (Scholar) intent.getSerializableExtra("SCHOLAR");
         System.out.println(scholar);
         setContentView(R.layout.scholar_single_page);
 
@@ -24,6 +31,7 @@ public class ScholarSinglePage extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//添加默认的返回图标
 
+        nestedScrollView = findViewById(R.id.scholar_scroll_view);
 
         MyImageView scholar_avatar = findViewById(R.id.scholar_page_avatar);
         TextView scholar_name = findViewById(R.id.scholar_page_name);
@@ -61,7 +69,30 @@ public class ScholarSinglePage extends AppCompatActivity {
         if (scholar.isPassedAway)
             name = "追忆学者 - "+name;
         scholar_page_title.setText(name);
+
+        toolbar.setOnClickListener(new Toolbar.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if (!isUP) {
+                    isUP = true;
+                    mHandler.sendEmptyMessageDelayed(0, 1500);  // 利用handler延迟发送更改状态信息
+                } else {
+                    nestedScrollView.scrollTo(0,0);
+                }
+            }
+        });
     }
+
+    private static boolean isUP = false;
+
+    private static Handler mHandler = new Handler(Looper.myLooper()) {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isUP=false;
+        }
+    };
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
