@@ -57,9 +57,7 @@
     <!-- divider -->
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_height="1dp"
         android:background="#EAEAEA" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -74,7 +72,8 @@
             android:layout_height="0dp"
             android:layout_weight="15"
             android:divider="@null"
-            android:groupIndicator="@null" />
+            android:groupIndicator="@null"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

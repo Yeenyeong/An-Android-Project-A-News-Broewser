@@ -6,14 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/statistic_barChart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/statistic_lineChart"
+        android:background="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="150dp"/>
 
 </LinearLayout>
