@@ -1,6 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/scholar_page_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/Theme.AppCompat.Light">
+
+            <TextView
+                android:id="@+id/scholar_page_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/scholar"
+                android:textColor="@color/corona_background"
+                android:textSize="18sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scholar_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- 图片 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:background="@drawable/background_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <com.java.ChenYuanYong.MyImageView
+                            android:id="@+id/scholar_page_avatar"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="3"
+                            android:scaleType="fitXY" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/scholar_page_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="10dp"
+                                android:textColor="#252525"
+                                android:textSize="18sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="10dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/position" />
+
+                                <TextView
+                                    android:id="@+id/scholar_page_position"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:textColor="#2E2E2E"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="10dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/affiliation" />
+
+                                <TextView
+                                    android:id="@+id/scholar_page_affiliation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:textColor="#2E2E2E"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 教育背景 -->
+                <LinearLayout
+                    android:background="@drawable/background_text"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/edu" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:baselineAligned="false"
+                            android:text="教育"
+                            android:textColor="#474747"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="1dp"
+                        android:background="#716FA8" />
+
+                    <TextView
+                        android:id="@+id/scholar_page_edu"
+                        android:text="无信息"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="#616161"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <!-- 工作经历 -->
+                <LinearLayout
+                    android:background="@drawable/background_text"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_width="20dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/work" />
+                        <TextView
+                            android:text="工作"
+                            android:textColor="#474747"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="5dp"
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="1dp"
+                        android:background="#716FA8" />
+
+                    <TextView
+                        android:id="@+id/scholar_page_work"
+                        android:text="无信息"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="#616161"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <!-- 个人简介 -->
+                <LinearLayout
+                    android:background="@drawable/background_text"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_width="20dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/bio" />
+                        <TextView
+                            android:text="简介"
+                            android:textColor="#474747"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="5dp"
+
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="20dp"
+                        android:background="#716FA8" />
+
+                    <TextView
+                        android:id="@+id/scholar_page_bio"
+                        android:text="无信息"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="#616161"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="30dp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

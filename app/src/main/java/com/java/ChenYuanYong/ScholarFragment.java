@@ -143,6 +143,9 @@ class Scholar implements Serializable {
     String position;
     String affiliation;
     String bio;
+    String edu;
+    String work;
+    boolean isPassedAway;
 }
 
 class ScholarNetworking extends Thread {
@@ -191,11 +194,28 @@ class ScholarNetworking extends Thread {
             scholar.avatar = singleOne.getString("avatar");
 
             JSONObject profile = singleOne.getJSONObject("profile");
-
             scholar.affiliation = profile.getString("affiliation");
-            scholar.position = profile.getString("position");
             scholar.bio = profile.getString("bio");
+            scholar.bio = scholar.bio.replace("<br>","\n\n");
 
+            if (profile.has("position"))
+                scholar.position = profile.getString("position");
+            else
+                scholar.position = "";
+
+            if (profile.has("edu"))
+                scholar.edu = profile.getString("edu");
+            else
+                scholar.edu = "";
+            scholar.edu = scholar.bio.replace("<br>","\n\n");
+
+            if (profile.has("work"))
+                scholar.work = profile.getString("work");
+            else
+                scholar.work = "";
+            scholar.work = scholar.work.replace("<br>","\n\n");
+
+            scholar.isPassedAway = singleOne.getBoolean("is_passedaway");
             scholars.add(scholar);
         }
     }
