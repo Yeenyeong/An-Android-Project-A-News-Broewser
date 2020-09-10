@@ -33,7 +33,16 @@
                     android:textSize="23sp"
                     android:textColor="@color/corona_background"
                     android:text="@string/entity"/>
-                <TextView
+
+                <SearchView
+                    android:id="@+id/entity_search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:iconifiedByDefault="false"
+                    android:background="@drawable/edit_background"
+                    android:queryHint="@string/search" />
+
+                <!---TextView
                     android:id="@+id/entity_search_bar"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -43,19 +52,23 @@
                     android:layout_height="match_parent"
                     android:singleLine="true"
                     android:gravity="center"
+<<<<<<< HEAD
+                    android:background="@drawable/edit_background"
+                    android:hint="@string/search"/-->
+=======
                     android:background="@drawable/background_edit"
                     android:hint="@string/search"/>
+>>>>>>> 4c46d73f81805ca4a43be061a0213742c54df9d3
 
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/entity">
-    </TextView>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/entity_container" />
 
 
 </LinearLayout>
