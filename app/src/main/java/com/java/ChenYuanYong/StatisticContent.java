@@ -25,7 +25,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -49,7 +48,7 @@ public class StatisticContent extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.statistic_expand, container, false);
 
-        swipeRefreshLayout = view.findViewById(R.id.statistic_refresh_swipe);
+        swipeRefreshLayout = view.findViewById(R.id.statistic_swipe_refresh);
 
         regions.add("loading...");
         RegionData regionData = new RegionData();

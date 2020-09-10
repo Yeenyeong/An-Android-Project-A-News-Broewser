@@ -93,19 +93,7 @@ public class HistoryActivity extends AppCompatActivity {
     }
 }
 
-class Holder extends RecyclerView.ViewHolder {
-    public TextView newsTitle;
-    public TextView newsBody;
-    public TextView newsSource;
-    public LinearLayout newsItem;
-    public Holder(View view) {
-        super(view);
-        newsTitle = view.findViewById(R.id.news_SP_title);
-        newsBody = view.findViewById(R.id.newsBody);
-        newsSource = view.findViewById(R.id.newsSource);
-        newsItem = view.findViewById(R.id.newsItem);
-    }
-}
+
 
 class HistoryRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     News news;
@@ -118,6 +106,20 @@ class HistoryRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         this.historyNews.clear();
         this.historyNews = list;
         notifyDataSetChanged();
+    }
+
+    class Holder extends RecyclerView.ViewHolder {
+        public TextView newsTitle;
+        public TextView newsBody;
+        public TextView newsSource;
+        public LinearLayout newsItem;
+        public Holder(View view) {
+            super(view);
+            newsTitle = view.findViewById(R.id.news_SP_title);
+            newsBody = view.findViewById(R.id.newsBody);
+            newsSource = view.findViewById(R.id.newsSource);
+            newsItem = view.findViewById(R.id.newsItem);
+        }
     }
 
     @NonNull

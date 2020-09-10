@@ -40,7 +40,7 @@ public class NewsSearchActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//添加默认的返回图标
 
-        final SearchRecycleViewAdapter adapter = new SearchRecycleViewAdapter(searchResult);
+        final NewsSearchRecycleViewAdapter adapter = new NewsSearchRecycleViewAdapter(searchResult);
         RecyclerView recyclerView = findViewById(R.id.news_search_recycle_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -121,10 +121,10 @@ class ViewHolder extends RecyclerView.ViewHolder {
     }
 }
 
-class SearchRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+class NewsSearchRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     News news;
     List<News> searchResult;
-    SearchRecycleViewAdapter(List<News> searchResultId){
+    NewsSearchRecycleViewAdapter(List<News> searchResultId){
         this.searchResult =searchResultId;
     }
 

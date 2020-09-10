@@ -61,7 +61,7 @@
         android:background="#EAEAEA" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/statistic_refresh_swipe"
+        android:id="@+id/statistic_swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="15">
