@@ -18,7 +18,7 @@
         android:id="@+id/region_confirmed"
         android:gravity="center"
         android:textSize="15sp"
-        android:textColor="@android:color/black"
+        android:textColor="#FF6666"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp"/>
@@ -27,7 +27,7 @@
         android:id="@+id/region_dead"
         android:gravity="center"
         android:textSize="15sp"
-        android:textColor="@android:color/black"
+        android:textColor="#8E8E8E"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp"/>
@@ -36,7 +36,7 @@
         android:id="@+id/region_cured"
         android:gravity="center"
         android:textSize="15sp"
-        android:textColor="@android:color/black"
+        android:textColor="#79AE62"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp"/>

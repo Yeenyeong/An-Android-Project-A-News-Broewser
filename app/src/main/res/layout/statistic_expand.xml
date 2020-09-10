@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="确诊"
-            android:textColor="#FF2525"
+            android:textColor="#E42323"
             android:textSize="15sp" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="治愈"
-            android:textColor="#67C83D"
+            android:textColor="#489E19"
             android:textSize="15sp" />
 
     </LinearLayout>
