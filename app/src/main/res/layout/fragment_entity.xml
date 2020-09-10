@@ -39,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:iconifiedByDefault="false"
-                    android:background="@drawable/edit_background"
+                    android:background="@drawable/background_edit"
                     android:queryHint="@string/search" />
 
                 <!---TextView

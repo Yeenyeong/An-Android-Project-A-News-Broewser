@@ -1,4 +1,4 @@
-package com.example.coronanews;
+package com.java.ChenYuanYong;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

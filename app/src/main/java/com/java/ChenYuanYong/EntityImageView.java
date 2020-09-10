@@ -1,4 +1,4 @@
-package com.example.coronanews;
+package com.java.ChenYuanYong;
 
 import android.content.Context;
 import android.graphics.Bitmap;
