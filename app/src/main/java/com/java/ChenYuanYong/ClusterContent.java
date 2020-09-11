@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -155,7 +156,6 @@ class ClusterNetworking extends Thread {
                 BufferedReader in = new BufferedReader(new InputStreamReader(coon.getInputStream()));
                 String msg = in.readLine();
                 parseData(msg);
-                clusterData();
                 in.close();
             }
         } catch (IOException | JSONException e) {
@@ -169,6 +169,8 @@ class ClusterNetworking extends Thread {
     private void parseData(String msg) throws JSONException, IOException {
         JSONObject obj = new JSONObject(msg); //解析json数据
         JSONArray data = obj.getJSONArray("data");
+        List<String[]> events_seg = new ArrayList<>();
+
         for (int i = 0; i < data.length(); i++) {
             Event event = new Event();
             JSONObject singleOne = data.getJSONObject(i);
@@ -178,6 +180,8 @@ class ClusterNetworking extends Thread {
 
             String text = singleOne.getString("seg_text");
             String[] segText = text.split(" ");
+
+            events_seg.add(segText);
 
             int[] count = new int[category_num]; //分为10类
             // 统计每一类对应的关键词的数量
@@ -203,14 +207,11 @@ class ClusterNetworking extends Thread {
                         wordCount.put(segText[j], wordCount.get(segText[j]) + 1);
                     else
                         wordCount.put(segText[j], 1);
-
                 }
             }
             allEvents.add(event);
         }
-    }
 
-    private void clusterData() {
         // 找到每一类对应的计数最多的标签
         for (int i = 0; i < category_num; i++) {
             int maximum = -1;
@@ -227,13 +228,21 @@ class ClusterNetworking extends Thread {
         // 将event分为category_num类
         for (int i = 0; i < category_num; i++) {
             List<Event> list = new ArrayList<>();
-            for (Event e : allEvents) {
-                if (e.category == i) {
-                    list.add(e);
+
+            String label = labels.get(i);
+
+            for (int j = 0; j<allEvents.size(); j++){
+                for (String seg: events_seg.get(j)){
+                    if(seg.equals(label)){
+                        list.add(allEvents.get(j));
+                        break;
+                    }
                 }
             }
+
             cluster.put(labels.get(i), list);
         }
+
     }
 
 }
