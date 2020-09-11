@@ -10,28 +10,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
+            android:textColor="#1E1E1E"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/entity_home_page_title"
-            android:textSize="30dp"
+            android:textSize="25sp"
             android:gravity="center"
             />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="#EAEAEA" />
+
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:background="@drawable/corona"
             android:layout_gravity="center"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/entity_home_page_text"
             android:textSize="15dp"
-            android:lineSpacingMultiplier="1.25"/>
+            android:lineSpacingMultiplier="1.2"/>
 
     </LinearLayout>
 

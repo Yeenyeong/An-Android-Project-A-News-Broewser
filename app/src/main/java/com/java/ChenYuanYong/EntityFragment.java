@@ -1,6 +1,7 @@
 package com.java.ChenYuanYong;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 
@@ -58,6 +60,19 @@ public class EntityFragment extends Fragment {
         SearchView searchView = (SearchView) view.findViewById(R.id.entity_search_view);
         searchView.setSubmitButtonEnabled(true);
         searchView.setIconified(false);
+        try {
+            Class<?> argClass = searchView.getClass();
+            Field ownField = argClass.getDeclaredField("mSearchPlate");
+            Field ownField2 = argClass.getDeclaredField("mSubmitArea");
+            ownField.setAccessible(true);
+            ownField2.setAccessible(true);
+            View mView = (View) ownField.get(searchView);
+            mView.setBackgroundColor(Color.TRANSPARENT);
+            View mView2 = (View) ownField2.get(searchView);
+            mView2.setBackgroundColor(Color.TRANSPARENT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
