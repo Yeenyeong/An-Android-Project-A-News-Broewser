@@ -110,17 +110,6 @@ public class NewsContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         //设置正文
         viewHolder.newsBody.setText(body);
-//        if (body.length()==0)
-//            viewHolder.newsBody.setVisibility(View.GONE);
-
-        //设置来源
-//        if (dataSet.get(position).getType().equals("news")){
-//            String source = dataSet.get(position).getSource();
-//            source = "来源:"+source;
-//            viewHolder.newsSource.setText(source);
-//        }else {
-//            viewHolder.newsSource.setVisibility(View.GONE);
-//        }
 
         String source = dataSet.get(position).getTime() + "  " + dataSet.get(position).getSource();
         viewHolder.newsSource.setText(source);
