@@ -144,7 +144,8 @@ class ClusterNetworking extends Thread {
 
     public void run() {
         try {
-            int size = (int) (Math.random() * 600 + 100);
+//            int size = (int) (Math.random() * 600 + 100);
+            int size = 700;
             URL url = new URL("https://covid-dashboard.aminer.cn/api/events/list?type=event&size=" + size);
             HttpURLConnection coon = (HttpURLConnection) url.openConnection();
             coon.setRequestMethod("GET");

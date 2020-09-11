@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.java.ChenYuanYong.EntityDetailsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.java.ChenYuanYong.MainActivity"
+        <activity
+            android:name="com.java.ChenYuanYong.EntityDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.java.ChenYuanYong.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,25 +24,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.java.ChenYuanYong.CustomChannelActivity"
-            android:theme="@style/dialogStyle"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.java.ChenYuanYong.NewsSinglePageActivity"
+
+        <activity
+            android:name="com.java.ChenYuanYong.MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name="com.java.ChenYuanYong.CustomChannelActivity"
             android:screenOrientation="portrait"
-            android:launchMode="singleTask"/>
-        <activity android:name="com.java.ChenYuanYong.NewsSearchActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.java.ChenYuanYong.NewsSharePageActivity"
-            android:theme="@style/dialogStyle"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.java.ChenYuanYong.HistoryActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ScholarSinglePage"
+            android:theme="@style/dialogStyle" />
+        <activity
+            android:name="com.java.ChenYuanYong.NewsSinglePageActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.java.ChenYuanYong.NewsSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.java.ChenYuanYong.NewsSharePageActivity"
             android:screenOrientation="portrait"
-            android:launchMode="singleTask"/>
-        <activity android:name=".ClusterEventDetails"
-            android:theme="@style/dialogStyle"
-            android:screenOrientation="portrait"/>
+            android:theme="@style/dialogStyle" />
+        <activity
+            android:name="com.java.ChenYuanYong.HistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ScholarSinglePage"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ClusterEventDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialogStyle" />
     </application>
 
 </manifest>
