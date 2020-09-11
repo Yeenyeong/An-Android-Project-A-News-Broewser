@@ -26,16 +26,27 @@ public class NewsSharePageActivity extends AppCompatActivity {
         ImageView weChat = findViewById(R.id.share_WeChat);
         ImageView sina = findViewById(R.id.share_Sina);
 
+        final String finalTitle = title;
         weChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(NewsSharePageActivity.this,"分享到微信",Toast.LENGTH_SHORT).show();
+                Intent sendIntent = new Intent();
+                sendIntent.setPackage("com.tencent.mm");
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, finalTitle);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent,"Share to"));
             }
         });
         sina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(NewsSharePageActivity.this,"分享到新浪微博",Toast.LENGTH_SHORT).show();
+                Intent sendIntent = new Intent();
+                sendIntent.setPackage("com.sina.weibo");
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, finalTitle);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent,"Share to"));
             }
         });
     }
