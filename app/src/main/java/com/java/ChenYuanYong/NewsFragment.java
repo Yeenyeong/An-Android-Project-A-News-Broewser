@@ -41,7 +41,7 @@ public class NewsFragment extends Fragment {
         viewPager = view.findViewById(R.id.news_ViewPager);
         pagerAdapter = new NewsPagerAdapter(getFragmentManager());
 
-        clusterTabFragment = new Fragment();
+        clusterTabFragment = new ClusterContent();
         newsTabFragment = new NewsContent("新闻");
         paperTabFragment = new NewsContent("论文");
 

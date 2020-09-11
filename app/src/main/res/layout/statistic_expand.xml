@@ -75,5 +75,4 @@
             android:groupIndicator="@null"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
 </LinearLayout>

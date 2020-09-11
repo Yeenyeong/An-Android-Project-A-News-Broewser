@@ -67,6 +67,17 @@ public class StatisticContent extends Fragment {
             }
         });
 
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int position) {
+                for (int i = 0; i < adapter.getGroupCount(); i++){
+                    if (position!=i){
+                        expandableListView.collapseGroup(i);
+                    }
+                }
+            }
+        });
+
         return view;
     }
 

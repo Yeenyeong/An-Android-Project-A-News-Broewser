@@ -23,7 +23,7 @@ public class ScholarSinglePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         final Scholar scholar = (Scholar) intent.getSerializableExtra("SCHOLAR");
-        System.out.println(scholar);
+
         setContentView(R.layout.scholar_single_page);
 
         Toolbar toolbar = findViewById(R.id.scholar_page_toolbar);

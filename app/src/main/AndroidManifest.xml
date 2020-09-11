@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.java.ChenYuanYong.EntityDetailsActivity"></activity>
+        <activity android:name="com.java.ChenYuanYong.EntityDetailsActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name="com.java.ChenYuanYong.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -39,6 +40,9 @@
         <activity android:name=".ScholarSinglePage"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
+        <activity android:name=".ClusterEventDetails"
+            android:theme="@style/dialogStyle"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
