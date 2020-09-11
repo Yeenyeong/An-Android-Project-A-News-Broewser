@@ -98,7 +98,6 @@ public class NewsContent extends Fragment {
         });
 
         swipeRefreshLayout = view.findViewById(R.id.newsSwipeFresh);
-        swipeRefreshLayout.setRefreshing(true);
         refreshData();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

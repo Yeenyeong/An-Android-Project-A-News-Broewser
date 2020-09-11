@@ -97,7 +97,7 @@ public class ClusterContentAdapter extends BaseExpandableListAdapter {
 
         String title = cluster.get(labels.get(groupPosition)).get(childPosition).title;
 
-        if (title.length()>15)
+        if (title.length()>20)
             title = title.substring(0, 20)+"...";
 
         childHold.childText.setText(title);

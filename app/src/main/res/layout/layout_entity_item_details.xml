@@ -5,10 +5,21 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginStart="30dp"
+        android:textColor="#252525"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/entity_label"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="1dp"
+        android:background="#EAEAEA" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,27 +27,51 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:lineSpacingMultiplier="1.2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/entity_item_description"/>
 
         <com.java.ChenYuanYong.EntityImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/entity_img"
-            />
+            android:layout_marginEnd="20dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/entity_img" />
 
     </LinearLayout>
-
-    <ExpandableListView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/entity_relation_list_view"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="1dp"
+        android:background="#EAEAEA" />
 
     <ExpandableListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/entity_property_list_view"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="1dp"
+        android:background="#EAEAEA" />
+
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entity_relation_list_view"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="1dp"
+        android:background="#EAEAEA" />
+
+
 
 </LinearLayout>

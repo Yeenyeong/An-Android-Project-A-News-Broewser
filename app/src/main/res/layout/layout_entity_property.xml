@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:textColor="#171717"
+            android:layout_weight="2"
             android:layout_height="match_parent"
             android:id="@+id/property_type"
-            android:textSize="18dp"/>
+            android:textSize="15sp"/>
 
         <TextView
+            android:textColor="#474747"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="8"
             android:layout_height="match_parent"
             android:id="@+id/property_text"
-            android:textSize="15dp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

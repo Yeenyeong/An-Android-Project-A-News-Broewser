@@ -63,7 +63,6 @@ public class ClusterContent extends Fragment {
         tmp.add(event);
         cluster.put("loading...", tmp);
 
-        swipeRefreshLayout.setRefreshing(true);
         new ClusterNetworking(mHandler, wordCluster).start();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

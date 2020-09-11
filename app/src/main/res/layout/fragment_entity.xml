@@ -42,25 +42,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/background_edit"
-                    android:queryHint="@string/search" />
-
-                <!---TextView
-                    android:id="@+id/entity_search_bar"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="15sp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:singleLine="true"
-                    android:gravity="center"
-<<<<<<< HEAD
-                    android:background="@drawable/edit_background"
-                    android:hint="@string/search"/-->
-=======
-                    android:background="@drawable/background_edit"
-                    android:hint="@string/search"/>
->>>>>>> 4c46d73f81805ca4a43be061a0213742c54df9d3
+                    android:queryHint="搜索知识实体" />
 
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>

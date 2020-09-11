@@ -58,7 +58,6 @@ public class StatisticContent extends Fragment {
         adapter = new StatisticContentAdapter(regions, countryData, getContext());
         expandableListView.setAdapter(adapter);
 
-        swipeRefreshLayout.setRefreshing(true);
         new StatisticNetworking(tabName, mHandler).start();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

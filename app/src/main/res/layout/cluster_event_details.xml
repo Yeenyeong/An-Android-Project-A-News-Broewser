@@ -21,6 +21,7 @@
     <TextView
         android:id="@+id/event_title"
         android:text="Event"
+        android:lineSpacingMultiplier="1.1"
         android:gravity="center"
         android:textSize="15sp"
         android:textColor="@android:color/black"
