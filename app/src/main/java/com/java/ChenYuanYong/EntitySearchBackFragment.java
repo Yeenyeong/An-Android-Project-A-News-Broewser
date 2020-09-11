@@ -51,9 +51,9 @@ public class EntitySearchBackFragment extends Fragment {
 
     private ArrayList<Entity> entity_list;
     private ListViewAdapter listAdapter;
+    //private InfoAdapter infoAdapter;
 
     private LayoutInflater inflater;
-    private View aView;
 
 
     public EntitySearchBackFragment() {
@@ -89,14 +89,17 @@ public class EntitySearchBackFragment extends Fragment {
         entity_list = new ArrayList<>();
         inflater = LayoutInflater.from(getContext());
         listAdapter = new ListViewAdapter();
+        //infoAdapter = new InfoAdapter();
     }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_entity_search_back, container, false);
-        aView = view;
+
+        ListView info_list_view = view.findViewById(R.id.entity_search_back_info);
+        //info_list_view.setAdapter(infoAdapter);
 
         ListView list_view = view.findViewById(R.id.entity_list_view);
         list_view.setAdapter(listAdapter);
@@ -166,10 +169,8 @@ public class EntitySearchBackFragment extends Fragment {
     public void setEntity_list(ArrayList<Entity> ettlist) {
         entity_list.clear();
         entity_list.addAll(ettlist);
-        TextView tv_result = aView.findViewById(R.id.entity_search_back_info);
-        tv_result.setText("共搜索到"+ entity_list.size() +"个实体");
         listAdapter.notifyDataSetChanged();
-
+        //infoAdapter.notifyDataSetChanged();
     }
 
     private class ListViewAdapter extends BaseAdapter {
@@ -199,5 +200,32 @@ public class EntitySearchBackFragment extends Fragment {
             return view;
         }
     }
+/*
+    public class InfoAdapter extends BaseAdapter {
 
+        @Override
+        public int getCount() {
+            return 1;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view = inflater.inflate(R.layout.layout_relation_preface, null);
+            TextView tv_info = view.findViewById(R.id.preface);
+            tv_info.setText("共搜索到"+ entity_list.size() +"个实体");
+
+            return view;
+        }
+    }
+*/
 }
