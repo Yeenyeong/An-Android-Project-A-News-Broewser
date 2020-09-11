@@ -36,7 +36,7 @@ public class EntityImageView extends ImageView {
     }
 
     public void getImage(final String url) {
-        if (url == "" || url == null) return;
+        if (url.equals("")) return;
 
         new Thread() {
             @Override

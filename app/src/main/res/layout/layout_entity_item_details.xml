@@ -22,6 +22,7 @@
         android:background="#EAEAEA" />
 
     <LinearLayout
+        android:id="@+id/entity_description_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -37,8 +38,8 @@
 
         <com.java.ChenYuanYong.EntityImageView
             android:layout_marginEnd="20dp"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/entity_img" />
 
     </LinearLayout>
@@ -48,6 +49,7 @@
         android:layout_marginEnd="30dp"
         android:layout_height="1dp"
         android:background="#EAEAEA" />
+
 
     <ExpandableListView
         android:layout_width="match_parent"

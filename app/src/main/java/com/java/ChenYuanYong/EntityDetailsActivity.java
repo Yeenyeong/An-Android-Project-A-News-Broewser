@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -59,6 +60,15 @@ public class EntityDetailsActivity extends AppCompatActivity {
         tv_label.setText(descriptionHolder.label);
         tv_text.setText(descriptionHolder.text);
         img_view.getImage(descriptionHolder.imgUrl);
+
+        if (descriptionHolder.text.equals("") && descriptionHolder.imgUrl.equals("")){
+            LinearLayout ll = findViewById(R.id.entity_description_ll);
+            ll.setVisibility(View.GONE);
+            tv_text.setVisibility(View.GONE);
+            img_view.setVisibility(View.GONE);
+        } else if (!descriptionHolder.imgUrl.equals("")){
+          img_view.setLayoutParams(new LinearLayout.LayoutParams(500, 500));
+        }
 
         if (!relationList.isEmpty()) {
             ExpandableListView relation_list_view = findViewById(R.id.entity_relation_list_view);

@@ -55,7 +55,6 @@ public class EntityFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_entity, container, false);
 
-        // config searchView
         SearchView searchView = (SearchView) view.findViewById(R.id.entity_search_view);
         searchView.setSubmitButtonEnabled(true);
         searchView.setIconified(false);
@@ -82,6 +81,12 @@ public class EntityFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
+                if (s.equals("")){
+                    FragmentTransaction frag_trans = getChildFragmentManager().beginTransaction();
+                    frag_trans.hide(search_back_frag).show(home_frag);
+                    frag_trans.addToBackStack(null);
+                    frag_trans.commit();
+                }
                 return false;
             }
         });
